@@ -8,7 +8,7 @@ export default function PostPage() {
     const [postInfo, setPostInfo] = useState(null);
     const {id} = useParams();
     useEffect(() => {
-        fetch(`https://radblok-back-end.onrender.com/post/${id}`)
+        fetch(`http://localhost:4000/post/${id}`)
         .then(response => {
             response.json().then(postInfo => {
                 setPostInfo(postInfo);
@@ -35,7 +35,7 @@ export default function PostPage() {
         </div>
         )}
         <div className="image">
-            <img src={`https://radback.onrender.com/${postInfo.cover}`} alt="cover-photo" />
+            <img src={`http://localhost:4000/${postInfo.cover}`} alt="cover-photo" />
     </div>
     <div className="content" dangerouslySetInnerHTML={{__html: postInfo.content}} />
     </div>
